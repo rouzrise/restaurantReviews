@@ -158,6 +158,10 @@ class DBHelper {
     return (`${restaurant.name} restaurant`);
   }
 
+  static ariaLabelForRestaurant(restaurant) {
+    return (`View details about ${restaurant.name} restaurant`);
+  }
+
   /**
    * Map marker for a restaurant.
    */
