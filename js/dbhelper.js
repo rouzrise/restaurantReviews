@@ -153,10 +153,10 @@ class DBHelper {
     return (`/img/${restaurant.photograph}`);
   }
 
-  // Restaurant image Alt
-  // static imageAltForRestaurant(restaurant) {
-  //   return (`${restaurant.name} restaurant`);
-  // }
+  Restaurant image Alt
+  static imageAltForRestaurant(restaurant) {
+    return (`${restaurant.name} restaurant`);
+  }
 
   /**
    * Map marker for a restaurant.
@@ -165,7 +165,7 @@ class DBHelper {
     // https://leafletjs.com/reference-1.3.0.html#marker  
     const marker = new L.marker([restaurant.latlng.lat, restaurant.latlng.lng],
       {title: restaurant.name,
-      // alt: restaurant.name,
+      alt: restaurant.name,
       url: DBHelper.urlForRestaurant(restaurant)
       })
       marker.addTo(newMap);
