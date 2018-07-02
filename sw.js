@@ -39,7 +39,6 @@ self.addEventListener('activate', function(e) {
 			}));
 		})
 	); 
-
 });
 
 
@@ -77,8 +76,6 @@ self.addEventListener('fetch', function(e) {
 					.catch(function(err) {
 						console.log('Error fetching and caching new data', err);
 					});
-
-
 			}) 
 	); 
 });
