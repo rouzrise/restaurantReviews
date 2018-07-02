@@ -241,6 +241,21 @@ nav h1 a {
   height: 100%;
   width: 100%;
 }
+
+#map .leaflet-top,
+.leaflet-bottom {
+  z-index: 999;
+}
+
+#map .leaflet-bottom,
+.leaflet-right{
+  z-index: 999;
+}
+
+#map .leaflet-control-attribution {
+  z-index: 999;
+}
+
 .inside #footer {
   bottom: 0;
   position: absolute;
@@ -425,7 +440,7 @@ nav h1 a {
     position: static;
     height: 500px;
     width: 100%;
-    margin-top: 8rem;
+    margin-top: 7rem;
   }
 
   .inside #footer {
@@ -493,7 +508,7 @@ nav h1 a {
   }
 
   .inside #map-container {
-    margin-top: 7.5rem;
+    margin-top: 6rem;
   }
 
   #restaurant-name {
