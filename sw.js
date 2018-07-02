@@ -1,5 +1,5 @@
 //Current cache
-var cacheName = 'chache1'; 
+var restoCache = 'chache1'; 
 
 //Files to cache
 var cacheFiles = [
@@ -17,7 +17,7 @@ self.addEventListener('install', function(e) {
 
     e.waitUntil(
 		//Open cache and add files to cache
-	    caches.open(cacheName).then(function(cache) {
+	    caches.open(restoCache).then(function(cache) {
 			console.log('ServiceWorker caching cache');
 			return cache.addAll(cacheFiles);
 	    })
@@ -30,11 +30,11 @@ self.addEventListener('activate', function(e) {
 
     e.waitUntil(
 		//Get cache keys and delete cached file that was saved under a previous cache name(if there is)
-		caches.keys().then(function(cacheNames) {
-			return Promise.all(cacheNames.map(function(thisCacheName) {
-				if (thisCacheName !== cacheName) {
-					console.log('ServiceWorker removing cached files from cache - ', thisCacheName);
-					return caches.delete(thisCacheName);
+		caches.keys().then(function(restoCaches) {
+			return Promise.all(restoCaches.map(function(thisRestoCache) {
+				if (thisRestoCache !== restoCache) {
+					console.log('ServiceWorker removing cached files from cache - ', thisRestoCache);
+					return caches.delete(thisRestoCache);
 				}
 			}));
 		})
@@ -66,7 +66,7 @@ self.addEventListener('fetch', function(e) {
 
 						var responseClone = response.clone();
 
-						caches.open(cacheName).then(function(cache) {
+						caches.open(restoCache).then(function(cache) {
 							cache.put(e.request, responseClone);
 							console.log('ServiceWorker cached new data', e.request.url);
 							return response;

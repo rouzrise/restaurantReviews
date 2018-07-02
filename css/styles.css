@@ -250,7 +250,7 @@ nav h1 a {
 #map .leaflet-top,
 .leaflet-bottom {
   z-index: 999;
-  /* margin-top: 2rem; */
+  margin-top: 2.5rem;
 }
 
 #map .leaflet-bottom,
